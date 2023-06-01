@@ -1,20 +1,49 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import Feeds from './src/screens/Feeds';
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 
-export default function App() {
+const Stack = createSharedElementStackNavigator()
+
+// export default function App() {
+//   return (
+
+//     <View style={styles.container}>
+//       <Text>Hello word</Text>
+//       <StatusBar style="auto" />
+//     </View>
+//   );
+// }
+
+
+
+
+const MyStack = () => {
   return (
-    <View style={styles.container}>
-      <Text>Hello word</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Stack.Navigator headerMode="none">
+      <Stack.Screen name="Feeds" component={Feeds} />
+    </Stack.Navigator>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
+const RootNavigation = () => {
+  return (
+    <NavigationContainer>
+      <StatusBar backgroundColor='black' barStyle="light-content" />
+      {
+        <MyStack />
+      }
+    </NavigationContainer>
+  )
+}
+
+const App = () => {
+  return (
+    <RootNavigation />
+  )
+}
+
+export default App;
