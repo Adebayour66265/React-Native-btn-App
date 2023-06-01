@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Animated, FlatList, Image, StyleSheet, TouchableOpacity, View } from 'react-native'
 import Colors from '../constants/Colors'
 import { Surface, Text } from 'react-native-paper'
